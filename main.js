@@ -688,14 +688,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_app_shared_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/user.service */ "./src/app/shared/user.service.ts");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 
 
 var RegistrationComponent = /** @class */ (function () {
-    function RegistrationComponent(service, toastr) {
+    function RegistrationComponent(service, toastr, router) {
         this.service = service;
         this.toastr = toastr;
+        this.router = router;
     }
     RegistrationComponent.prototype.ngOnInit = function () {
         this.service.formModel.reset();
@@ -706,6 +709,7 @@ var RegistrationComponent = /** @class */ (function () {
             if (res.succeeded) {
                 _this.service.formModel.reset();
                 _this.toastr.success("New user created", "Registration successful");
+                _this.router.navigateByUrl('/user/login');
             }
             else {
                 res.errors.forEach(function (element) {
@@ -729,7 +733,7 @@ var RegistrationComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./registration.component.html */ "./src/app/user/registration/registration.component.html"),
             styles: [__webpack_require__(/*! ./registration.component.css */ "./src/app/user/registration/registration.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_shared_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_shared_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], RegistrationComponent);
     return RegistrationComponent;
 }());
